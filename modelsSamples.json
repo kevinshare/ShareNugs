@@ -1,0 +1,75 @@
+inventory = 
+{ 
+  id: 1,
+  pens: {
+
+  }
+  flowers: {
+    indica: {
+      eighth: {
+        'Island': {
+          'Super Silver': {
+            thcLevel: '60%',
+            amount: 190,
+            cost: 60
+          }
+        }
+      }
+      half: {
+        'Island': {
+          'Super Silver': {
+            thcLevel: '60%',
+            amount: 90,
+            cost: 160
+          }
+        }
+      }     
+    }
+  }
+  cart: {
+    sativa: {
+      'Select': {
+        'Lemon Haze': {
+          thcLevel: '50%',
+          amount: 20,
+          cost: 50
+        }
+      }
+    }
+  }
+  edible: {
+    sativa: {
+      chocolate: {
+        'Tims Chocolate': {
+          thcLevel: '40%',
+          amount: 30,
+          cost: 40
+        }
+      }
+    }
+  }
+  glassware: {
+    bong: {
+      brandName: {
+        amount: 40,
+        cost:: 100
+      }
+    }
+    bowl: {
+      brandName: {
+        amount: 40,
+        cost:: 100
+      }
+    }
+  }
+}
+
+dispensary= 
+{
+  id: 1,
+  name: 'Urban Pharm'
+  location: {
+    lat: 89,
+    long, 46
+  }
+}
