@@ -1,12 +1,15 @@
-# ShareNugs
+# ShareNugs:
 
-# Clone Repo
+
+# To Run Application:
+
+## Clone Repo
 ## cd ShareNugs/
-### npm i -S
-#### npm start
+## npm i -S
+## npm start
 
-To Create Data:
+# To Create Data:
 
-# mongod
+## mongod
 ## mongo localhost
-#### npm run generate
+## npm run generate
