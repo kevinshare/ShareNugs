@@ -6,7 +6,7 @@
 ## Clone Repo
 ## cd ShareNugs/
 ## npm i -S
-## npm start
+## npm run dev
 
 # To Create Data:
 
