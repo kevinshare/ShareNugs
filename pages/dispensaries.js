@@ -16,12 +16,12 @@ export default class extends Component {
   }
   loadFunc() {
     const renderSelections = [];
-    for (let i = 0; i < this.state.selections.length + 10; i++) {
+    for (let i = 0; i < this.state.selections.length + 10; i += 1) {
       renderSelections.push(<Selection currentOne={i} />);
     }
     this.setState({
       selections: renderSelections,
-    })
+    });
   }
   render() {
     return (
@@ -51,4 +51,4 @@ export default class extends Component {
       </OverLay>
     );
   }
-}
+};

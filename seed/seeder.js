@@ -48,6 +48,8 @@ const create = (i) => {
         brand: generateRandomBrand(),
         type: generateRandomType(),
         amount: generateRandomAmount(),
+        indicaLevel: generateRandomAmount(),
+        sativaLevel: generateRandomAmount(),
         cost: generateRandomCost(),
         thcLevel: generateRandomPercentage(),
         cbdLevel: generateRandomPercentage(),
@@ -83,6 +85,11 @@ const create = (i) => {
         half: generateSampleConsumptionProducts(),
         ounce: generateSampleConsumptionProducts(),
       },
+      hybrid: {
+        eighth: generateSampleConsumptionProducts(),
+        half: generateSampleConsumptionProducts(),
+        ounce: generateSampleConsumptionProducts(),
+      },
     },
     cart: {
       indica: {
@@ -93,9 +100,25 @@ const create = (i) => {
         whole: generateSampleConsumptionProducts(),
         half: generateSampleConsumptionProducts(),
       },
+      hybrid: {
+        whole: generateSampleConsumptionProducts(),
+        half: generateSampleConsumptionProducts(),
+      },
     },
     edible: {
       indica: {
+        chocolates: {
+          '100': generateSampleConsumptionProducts(),
+          '60': generateSampleConsumptionProducts(),
+          '50': generateSampleConsumptionsProducts(),
+        },
+        liquids: {
+          '100': generateSampleConsumptionProducts(),
+          '60': generateSampleConsumptionProducts(),
+          '50': generateSampleConsumptionProducts(),
+        },
+      },
+      sativa: {
         chocolates: {
           '100': generateSampleConsumptionProducts(),
           '60': generateSampleConsumptionProducts(),
@@ -107,7 +130,7 @@ const create = (i) => {
           '50': generateSampleConsumptionProducts(),
         },
       },
-      sativa: {
+      hybrid: {
         chocolates: {
           '100': generateSampleConsumptionProducts(),
           '60': generateSampleConsumptionProducts(),

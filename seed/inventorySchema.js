@@ -7,6 +7,8 @@ mongoose.connect('mongodb://localhost/nugsAPI').then(() => {
     brand: String,
     type: String,
     amount: Number,
+    indicaLevel: Number,
+    sativaLevel: Number,
     cost: String,
     thcLevel: String,
     cbdLevel: String,
@@ -48,14 +50,17 @@ mongoose.connect('mongodb://localhost/nugsAPI').then(() => {
   const weedType = new mongoose.Schema({
     sativa: weight,
     indica: weight,
+    hybrid: weight,
   });
   const penType = new mongoose.Schema({
     sativa: size,
     indica: size,
+    hybrid: size,
   });
   const edibleType = new mongoose.Schema({
     sativa: mg,
     indica: mg,
+    hybrid: mg,
   });
   const glassType = new mongoose.Schema({
     bong: [glassProduct],
