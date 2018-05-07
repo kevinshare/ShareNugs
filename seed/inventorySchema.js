@@ -12,6 +12,9 @@ mongoose.connect('mongodb://localhost/nugsAPI').then(() => {
     cost: String,
     thcLevel: String,
     cbdLevel: String,
+    dealTitle: String,
+    dealDescription: String,
+    deal: Boolean,
   });
   const edibleProduct = new mongoose.Schema({
     chocolates: [weedProduct],

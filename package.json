@@ -12,6 +12,7 @@
     "generate": "npm run makeDispensaryModel && npm run makeInventoryModel && mkdir dispensary && mkdir inventory && node seed/seeder.js && node seed/seederD.js && npm run seed"
   },
   "dependencies": {
+    "graphql": "^0.13.2",
     "mongoose": "^5.0.17",
     "next": "latest",
     "react": "^16.0.0",

@@ -13,6 +13,26 @@ const create = (i) => {
     const randomBrand = brands[Math.floor(Math.random() * brands.length)];
     return randomBrand;
   };
+  const generateRandomDeal = () => {
+    const deals = ['20% off', '30% off', 'Free Prerolled', '2 for 1'];
+    const trueOrFalse = [true, false, false, false, false, false, false];
+    const dealYesOrNo = trueOrFalse[Math.floor(Math.random() * trueOrFalse.length)];
+    let randomDeal;
+    if (dealYesOrNo) {
+      randomDeal = {
+        title: deals[Math.floor(Math.random() * deals.length)],
+        description: '',
+        deal: true,
+      };
+    } else {
+      randomDeal = {
+        title: '',
+        description: '',
+        deal: false,
+      };
+    }
+    return randomDeal;
+  };
   const generateRandomType = () => {
     const types = ['Indica', 'Sativa'];
     const randomType = types[Math.floor(Math.random() * types.length)];
@@ -42,6 +62,7 @@ const create = (i) => {
   const generateSampleConsumptionProducts = () => {
     const consumeList = [];
     for (let piece = 0; piece < 10; piece += 1) {
+      const isDeal = generateRandomDeal();
       consumeList.push({
         id: piece,
         name: generateRandomName(),
@@ -53,6 +74,9 @@ const create = (i) => {
         cost: generateRandomCost(),
         thcLevel: generateRandomPercentage(),
         cbdLevel: generateRandomPercentage(),
+        dealTitle: isDeal.title,
+        dealDescription: isDeal.description,
+        deal: isDeal.deal,
       });
     }
     return consumeList;
