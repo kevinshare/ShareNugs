@@ -14,17 +14,6 @@ export default () => (
         <a className="button1">Login</a>
       </Link>
     </div>
-    <div className="theButtons">
-      <Link href='/products'>
-        <a className="button1">Products</a>
-      </Link>
-      <Link href='/dispensaries'>
-        <a className="button1">Dispensaries</a>
-      </Link>
-      <Link href='/'>
-        <a className="button1">Home</a>
-      </Link>
-    </div>
 
   <style jsx>{`
   @import url('https://fonts.googleapis.com/css?family=Play');
@@ -59,7 +48,7 @@ export default () => (
     min-width: 100vw; /* Full width */
   }
     /* Links inside the navbar */
-    .navbar a {
+  .navbar a {
     font-family: 'Play', sans-serif;
     display: block;
     color: black;
@@ -67,26 +56,22 @@ export default () => (
     text-decoration: none;
     float: right;
   }
-    .theButtons {
-    float: right;
-    margin-right: -30px;
-    margin-top: 9%;
-  }
     /* Change background on mouse-over */
-    .navbar a:hover {
+  .navbar a:hover {
     background: rgba(100, 100, 100, 0.1);
     color: black;
   }
   a.button1{
    padding:0.35em 1.2em;
-   border:0.1em solid #FFFFFF;
    margin:0 0.3em 0.3em 0;
+    margin-right: 250px;
+    margin-top: 45px;
    border-radius:0.6em;
    box-sizing: border-box;
    text-decoration:none;
    font-family:'Roboto',sans-serif;
    font-weight:300;
-   font-size: 20px;
+   font-size: 30px;
    color:black;
    text-align:center;
    transition: all 0.6s;

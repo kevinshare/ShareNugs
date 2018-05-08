@@ -41,8 +41,6 @@ export default class extends Component {
                 vertical-align: center;
                 text-align: center;
               }
-              .loader {
-              }
             `}</style>
           </div>}
         >

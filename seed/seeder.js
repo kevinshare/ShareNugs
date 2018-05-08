@@ -54,8 +54,8 @@ const create = (i) => {
     return randomAmount;
   };
   const generateRandomPercentage = () => {
-    const TCHLevels = [90, 20, 60, 57];
-    const randomTHCLevel = TCHLevels[Math.floor(Math.random() * TCHLevels.length)];
+    const THCLevels = [90, 20, 60, 57];
+    const randomTHCLevel = THCLevels[Math.floor(Math.random() * THCLevels.length)];
     return randomTHCLevel;
   };
 
