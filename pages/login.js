@@ -1,7 +1,11 @@
-import OverLay from '../components/OverLay';
+import Head from 'next/head';
+import LoginOverlay from '../components/LoginOverlay';
 
 export default () => (
-  <OverLay>
-    <h1> LOGIN HERE </h1>
-  </OverLay>
+  <LoginOverlay>
+    <Head>
+        <title>Style Page</title>
+        <link href="/static/materializedStyles.css" rel="stylesheet" />
+    </Head>
+  </LoginOverlay>
 );

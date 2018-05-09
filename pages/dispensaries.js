@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
+import Head from 'next/head';
 import OverLay from '../components/OverLay';
 import Selection from '../components/Selection';
 
@@ -26,7 +27,11 @@ export default class extends Component {
   render() {
     return (
       <OverLay>
-        <InfiniteScroll
+      <Head>
+          <title>Style Page</title>
+          <link href="/statics/materializedStyles.css" rel="stylesheet" />
+      </Head>        
+      <InfiniteScroll
           pageStart={0}
           loadMore={this.loadFunc}
           hasMore={true || false}

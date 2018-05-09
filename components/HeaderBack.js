@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ReplyIcon from 'mdi-react/ReplyIcon';
 
 export default () => (
   <div className="navbar">
@@ -10,8 +11,8 @@ export default () => (
       </div>
     </Link>
     <div className="login">
-      <Link href='/login'>
-        <a className="button1">Login</a>
+      <Link href='/'>
+         <ReplyIcon size={70}>insert_chart</ReplyIcon>
       </Link>
     </div>
 
