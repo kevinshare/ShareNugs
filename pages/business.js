@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Overlay from '../components/OverLay';
+import Overlay from '../components/BusinessOverlay';
 
 export default () => (
   <div className="wrapper">
@@ -13,11 +13,10 @@ export default () => (
       .wrapper {
         height: 100vh;
         width: 100vw;
-        background: url("https://images.pexels.com/photos/94817/pexels-photo-94817.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center;
+        background-color: rgba(245, 245, 245);
         background-size: cover;
         position: absolute;
       }
     `}</style>
   </div>
 );
-

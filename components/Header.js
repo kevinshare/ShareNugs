@@ -1,7 +1,21 @@
+import { Component } from 'react';
+import { Modal, Button } from 'react-materialize';
 import Link from 'next/link';
+import Panel from './Panel';
+import $ from 'jquery';
 
-export default () => (
-  <div className="navbar">
+export default class extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: '',
+    };
+  }
+  componentDidMount() {
+  }
+  render() {
+    return(
+        <div className="navbar">
     <Link href='/'>
       <div>
         <h1 className="title">
@@ -9,24 +23,12 @@ export default () => (
         </h1>
       </div>
     </Link>
-    <div className="login">
-      <Link href='/login'>
+    <Link href='/login'>
+      <div className="login">
         <a className="button1">Login</a>
-      </Link>
-    </div>
-    <div className="theButtons">
-      <Link href='/products'>
-        <a className="button1">Products</a>
-      </Link>
-      <Link href='/dispensaries'>
-        <a className="button1">Dispensaries</a>
-      </Link>
-      <Link href='/'>
-        <a className="button1">Home</a>
-      </Link>
-    </div>
-
-  <style jsx>{`
+      </div>
+    </Link>
+      <style jsx>{`
   @import url('https://fonts.googleapis.com/css?family=Play');
 
   .title {
@@ -35,12 +37,12 @@ export default () => (
     padding-left: 10px;
     letter-spacing: 6px;
     font-size: 60px;
-    color:  #C0C0C0;
+    color: black;
     font-family: 'Play', sans-serif;
     transition: all 1.0s;
   }
     .title:hover {
-    color:black;
+    color:#C1C1C1;
   }
     .login {
     margin-top: 15px;
@@ -59,7 +61,7 @@ export default () => (
     min-width: 100vw; /* Full width */
   }
     /* Links inside the navbar */
-    .navbar a {
+  .navbar a {
     font-family: 'Play', sans-serif;
     display: block;
     color: black;
@@ -67,26 +69,22 @@ export default () => (
     text-decoration: none;
     float: right;
   }
-    .theButtons {
-    float: right;
-    margin-right: -30px;
-    margin-top: 9%;
-  }
     /* Change background on mouse-over */
-    .navbar a:hover {
+  .navbar a:hover {
     background: rgba(100, 100, 100, 0.1);
     color: black;
   }
   a.button1{
    padding:0.35em 1.2em;
-   border:0.1em solid #FFFFFF;
    margin:0 0.3em 0.3em 0;
+    margin-right: 250px;
+    margin-top: 45px;
    border-radius:0.6em;
    box-sizing: border-box;
    text-decoration:none;
    font-family:'Roboto',sans-serif;
    font-weight:300;
-   font-size: 20px;
+   font-size: 30px;
    color:black;
    text-align:center;
    transition: all 0.6s;
@@ -103,4 +101,6 @@ export default () => (
   }
     `}</style>
   </div>
-);
+    );
+  }
+}

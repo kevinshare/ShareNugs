@@ -1,4 +1,4 @@
-import Header from './Header';
+import Header from './HeaderBasic';
 
 // const layoutStyle = {
 //   border: '1px solid green',
