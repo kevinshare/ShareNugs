@@ -3,13 +3,13 @@ import ReplyIcon from 'mdi-react/ReplyIcon';
 
 export default () => (
   <div className="navbar">
-    <Link href='/'>
-      <div>
+    <div>
+      <Link href='/'>
         <h1 className="title">
           Share Nugs
         </h1>
-      </div>
-    </Link>
+      </Link>
+    </div>
     <div className="login">
       <Link href='/'>
          <ReplyIcon size={70}>insert_chart</ReplyIcon>
