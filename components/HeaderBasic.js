@@ -1,16 +1,18 @@
 import Link from 'next/link';
 
 export default () => (
-      <div className="navbar">
-        <Link href='/'>
-          <div>
+      <div className="navbar"> 
+        <div>
+          <Link href='/'>
             <h1 className="title">
               Share Nugs
             </h1>
-          </div>
-        </Link>
+          </Link>
+        </div>
         <div className="logout">
-          <a className="button1">Sign Out</a>
+          <Link href='/'>
+            <a className="button1">Sign Out</a>
+          </Link>
         </div>
         <div className="theButtons">
           <Link href='/dispensaries'>
@@ -75,7 +77,6 @@ export default () => (
       }
       a.button1{
        padding:0.35em 1.2em;
-       border:0.1em solid #FFFFFF;
        margin:0 0.3em 0.3em 0;
        border-radius:0.6em;
        box-sizing: border-box;

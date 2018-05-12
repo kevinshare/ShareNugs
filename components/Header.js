@@ -16,18 +16,18 @@ export default class extends Component {
   render() {
     return(
         <div className="navbar">
-    <Link href='/'>
       <div>
-        <h1 className="title">
-          Share Nugs
-        </h1>
+        <Link href='/'>
+          <h1 className="title">
+            Share Nugs
+          </h1>
+        </Link>
       </div>
-    </Link>
-    <Link href='/login'>
       <div className="login">
-        <a className="button1">Login</a>
+        <Link href='/login'>
+          <a className="button1">Login</a>
+        </Link>
       </div>
-    </Link>
       <style jsx>{`
   @import url('https://fonts.googleapis.com/css?family=Play');
 
