@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Header from './HeaderBasic';
 import { withStyles } from 'material-ui/styles';
-import withRoot from '../src/withRoot';
+import defaultPage from '../hoc/style';
 
 const styles = theme => ({
   root: {
@@ -44,4 +44,4 @@ class Layout extends Component {
   }
 }
 
-export default withRoot(withStyles(styles)(Layout));
+export default Layout;

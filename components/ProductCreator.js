@@ -3,15 +3,9 @@ import { Button } from 'react-materialize';
 import Link from 'next/link';
 import AutoComplete from 'material-ui/AutoComplete';
 import { withStyles } from 'material-ui/styles';
-import withRoot from '../src/withRoot';
+import defaultPage from '../hoc/style';
 
 
-const styles = theme => ({
-  root: {
-    textAlign: 'center',
-    paddingTop: theme.spacing.unit * 20,
-  },
-});
 
 class ProductCreator extends Component {
   constructor(props) {
@@ -20,6 +14,8 @@ class ProductCreator extends Component {
         searchText: '',
         searchableProducts: ['OG Kush', 'Blue Dream'],
     };
+    this.handleUpdateInput = this.handleUpdateInput.bind(this);
+    this.handleNewRequest = this.handleNewRequest.bind(this);
   }
   handleUpdateInput(searchText) {
     this.setState({
@@ -37,17 +33,16 @@ class ProductCreator extends Component {
         return(
         <div>
             <div className="wrapCreateInput">
-                <p className="productName"> Product Name:  </p>
                 <div className="inputter">
-                        <AutoComplete
-                          hintText="Type 'r', case insensitive"
-                          searchText={this.state.searchText}
-                          onUpdateInput={this.handleUpdateInput}
-                          onNewRequest={(chosenRequest) => this.handleNewRequest(chosenRequest)}
-                          dataSource={this.state.searchableProducts}
-                          filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
-                          openOnFocus={true}
-                        />
+                <AutoComplete
+                  hintText="Search A Product Name"
+                  searchText={this.state.searchText}
+                  onUpdateInput={this.handleUpdateInput}
+                  onNewRequest={chosenRequest => this.handleNewRequest(chosenRequest)}
+                  dataSource={this.state.searchableProducts}
+                  filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
+                  openOnFocus={true}
+                />
                 </div>
             </div>
             <div className="submit">
@@ -85,6 +80,5 @@ class ProductCreator extends Component {
         </div>
         );
     }
-}
-
-export default withRoot(withStyles(styles)(ProductCreator));
+};
+export default defaultPage(ProductCreator);

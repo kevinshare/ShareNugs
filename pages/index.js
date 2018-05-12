@@ -2,8 +2,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Overlay from '../components/OverLay';
 import EntryButtons from '../components/Entry';
-import { withStyles } from 'material-ui/styles';
-import withRoot from '../src/withRoot';
+import { withStyles } from 'material-ui/styles'; 
 
 class Index extends React.Component {
   constructor(props) {

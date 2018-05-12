@@ -1,21 +1,25 @@
 import Head from 'next/head';
+import AutoComplete from 'material-ui/AutoComplete';
+import { withStyles } from 'material-ui/styles';
+import defaultPage from '../hoc/style';
 import Overlay from '../components/BusinessOverlay';
 import ProductCreator from '../components/ProductCreator';
-import { withStyles } from 'material-ui/styles';
-import withRoot from '../src/withRoot';
+
 
 const styles = theme => ({
   root: {
     textAlign: 'center',
     paddingTop: theme.spacing.unit * 20,
+    
   },
 });
 
 class Business extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props, context) {
+    super(props, context)
     this.state = {
       open: false,
+      searchableProducts: ['OG Kush', 'Blue Dream'],
     };
   }
   render() {
@@ -42,4 +46,4 @@ class Business extends React.Component {
   }
 }
 
-export default withRoot(withStyles(styles)(Business));
+export default defaultPage(Business);
