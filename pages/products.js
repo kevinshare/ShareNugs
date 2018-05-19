@@ -9,8 +9,8 @@ export default class extends Component {
     return (
       <OverLay>
         <Head>
-            <title>Style Page</title>
-            <link href="/statics/materializedStyles.css" rel="stylesheet" />
+          <title>Style Page</title>
+          <link href="/statics/materializedStyles.css" rel="stylesheet" />
         </Head>
       </OverLay>
     )

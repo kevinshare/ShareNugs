@@ -27,11 +27,11 @@ export default class extends Component {
   render() {
     return (
       <OverLay>
-      <Head>
+        <Head>
           <title>Style Page</title>
           <link href="/statics/materializedStyles.css" rel="stylesheet" />
-      </Head>        
-      <InfiniteScroll
+        </Head>
+        <InfiniteScroll
           pageStart={0}
           loadMore={this.loadFunc}
           hasMore={true || false}
@@ -49,9 +49,10 @@ export default class extends Component {
             `}</style>
           </div>}
         >
-        {this.state.selections}
+          {this.state.selections}
         </InfiniteScroll>
       </OverLay>
     );
   }
 };
+
