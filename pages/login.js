@@ -5,14 +5,14 @@ export default () => (
   <div className="wrapper">
     <LoginOverlay>
       <Head>
-          <title>Style Page</title>
-          <link href="/static/materializedStyles.css" rel="stylesheet" />
+        <title>Style Page</title>
+        <link href="/static/materializedStyles.css" rel="stylesheet" />
       </Head>
     </LoginOverlay>
     <style jsx>{`
       .wrapper {
-        height: 100vh;
-        width: 100vw;
+        min-height: 100vh;
+        min-width: 100vw;
         background-color: rgba(245, 245, 245);
         background-size: cover;
         position: absolute;

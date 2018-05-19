@@ -34,8 +34,8 @@ class Business extends React.Component {
         </Overlay>
         <style jsx>{`
           .wrapper {
-            height: 100vh;
-            width: 100vw;
+            min-height: 200vh;
+            min-width: 100vw;
             background-color: rgba(245, 245, 245);
             background-size: cover;
             position: absolute;
