@@ -8,10 +8,6 @@ export default class extends Component {
   render () {
     return (
       <OverLay>
-        <Head>
-          <title>Style Page</title>
-          <link href="/statics/materializedStyles.css" rel="stylesheet" />
-        </Head>
       </OverLay>
     )
   }

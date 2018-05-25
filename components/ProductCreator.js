@@ -1,15 +1,16 @@
 import { Component } from 'react';
-import { Button } from 'react-materialize';
+import Button from 'material-ui/RaisedButton';
 import Link from 'next/link';
 import AutoComplete from 'material-ui/AutoComplete';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Settings from 'mdi-react/SettingsIcon';
+import Plus from 'mdi-react/CurrencyUsdIcon';
+import Minus from 'mdi-react/CurrencyUsdOffIcon';
 import TextField from 'material-ui/TextField';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
-import RaisedButton from 'material-ui/RaisedButton';
 import { withStyles } from 'material-ui/styles';
 import defaultPage from '../hoc/style';
 import findAverage from '../calculations/findAverage';
@@ -32,6 +33,7 @@ class ProductCreator extends Component {
         brand: '',
         type: '',
         amount: '',
+        description: '',
         eighthPrice: '',
         halfPrice: '',
         ouncePrice: '',
@@ -42,12 +44,14 @@ class ProductCreator extends Component {
     this.averagePrice = this.handleNewRequest.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
+    this.priceIncreaser = this.priceIncreaser.bind(this);
+    this.priceDecreaser = this.priceDecreaser.bind(this);
   }
   componentDidMount() {
   }
-  handleUpdateInput(searchText) {
+  handleUpdateInput(ST) {
     this.setState({
-      searchText: searchText,
+      searchText: ST,
     });
   }
   handleToggle(type) {
@@ -68,12 +72,28 @@ class ProductCreator extends Component {
     if (type === 3) {
       currentState.ouncePrice = value;
     }
+    if (type === 4) {
+      currentState.description = value;
+    }
     this.setState({
       product: currentState,
     });
   }
+  priceIncreaser() {
+    const product = { ...this.state.product };
+    product.eighthPrice = (Number(product.eighthPrice) + 5).toString();
+    product.halfPrice = (Number(product.halfPrice) + 5).toString();
+    product.ouncePrice = (Number(product.ouncePrice) + 5).toString();
+    this.setState({ product });
+  }
+  priceDecreaser() {
+    const product = { ...this.state.product };
+    product.eighthPrice = (Number(product.eighthPrice) - 5).toString();
+    product.halfPrice = (Number(product.halfPrice) - 5).toString();
+    product.ouncePrice = (Number(product.ouncePrice) - 5).toString();
+    this.setState({ product });
+  }
   handleNewRequest(chosenRequest) {
-    // console.log(chosenRequest);
     let eighth = '';
     let half = '';
     let ounce = '';
@@ -100,22 +120,33 @@ class ProductCreator extends Component {
     return (
       <div>
           <div className="selectedName">
-              <h1 className="selectedNameTitle">{this.state.product.name}</h1>
-              <p className="brand">{this.state.product.brand ? `by: ${this.state.product.brand}` : ''}</p>
+              <h1 className="selectedNameTitle">
+                {
+                  this.state.product.name ? this.state.product.name :
+                  <div className="emptyTitle"></div>
+                }
+              </h1>
+              <div className="brand">
+                  <p>
+                    {this.state.product.brand ? this.state.product.brand : <div className="emptyBrand" />}
+                  </p>
+              </div>
               {this.state.product.name ?
-                  <img 
-                      width="140px"
-                      height="140px"
-                      src="http://cdn.shopify.com/s/files/1/0441/8845/products/og-kush-marijuana-seeds-1_1024x1024.jpg?v=1508223214">
-                  </img>
-              :
-                  <div></div>
+                <img
+                    width="140px"
+                    height="140px"
+                    src="http://cdn.shopify.com/s/files/1/0441/8845/products/og-kush-marijuana-seeds-1_1024x1024.jpg?v=1508223214">
+                </img>
+              : 
+                <div
+                  className="emptyPic"
+                />
               }
           </div>
           <div className="wrapCreateInput">
               <div className="headerBar">
                   <div className="currentPageTitle">
-                      <h5>Product Creator</h5>
+                      <h2>Product Creator</h2>
                   </div>
               </div>
               <div className="inputter">
@@ -133,42 +164,64 @@ class ProductCreator extends Component {
                 <div>
                   <TextField
                     floatingLabelText="* Price Per Eighth"
-                    underlineShow={false}
+                    underlineShow={true}
+                    multiLine={false}
+                    rowsMax={1}
                     onChange={(event, newValue) => this.handleTextFieldChange(newValue, 1)}
                     value={this.state.product.eighthPrice}
-                    style={{width: 170}}
-                    floatingLabelStyle={{fontSize: '18px'}}
-                    labelStyle={{fontSize: '15px'}}
+                    style={{ width: 170 }}
+                    floatingLabelStyle={{ fontSize: '18px' }}
+                    labelStyle={{ fontSize: '15px' }}
                   />
                   <TextField
                     floatingLabelText="* Price Per Half"
-                    underlineShow={false}
+                    underlineShow={true}
+                    multiLine={false}
+                    rowsMax={1}
                     onChange={(event, newValue) => this.handleTextFieldChange(newValue, 2)}
                     value={this.state.product.halfPrice}
-                    style={{width: 170}}
-                    floatingLabelStyle={{fontSize: '18px'}}
-                    labelStyle={{fontSize: '15px'}}
+                    style={{ width: 170 }}
+                    floatingLabelStyle={{ fontSize: '18px' }}
+                    labelStyle={{ fontSize: '15px' }}
                   />
                   <TextField
                     floatingLabelText="* Price Per Ounce"
-                    underlineShow={false}
+                    underlineShow={true}
+                    multiLine={false}
+                    rowsMax={1}
+                    textareaStyle={{ maxHeight: '60px'}}
                     onChange={(event, newValue) => this.handleTextFieldChange(newValue, 3)}
                     value={this.state.product.ouncePrice}
-                    style={{width: 170}}
-                    floatingLabelStyle={{fontSize: '18px'}}
-                    labelStyle={{fontSize: '15px'}}
+                    style={{ width: 170 }}
+                    floatingLabelStyle={{ fontSize: '18px' }}
+                    labelStyle={{ fontSize: '15px' }}
                   />
                 </div>
-                <div>
+                <div className="priceButtons">
+                  <FloatingActionButton 
+                      backgroundColor="black" 
+                      mini={true}
+                      onClick={() => this.priceDecreaser()}>
+                      <Minus />
+                  </FloatingActionButton>
+                  <FloatingActionButton 
+                      backgroundColor="black" 
+                      mini={true}
+                      style={{ marginLeft: '60px' }}
+                      onClick={() => this.priceIncreaser()}>
+                      <Plus />
+                  </FloatingActionButton>
+                </div>
+                <div className="description">
                   <TextField
                     floatingLabelText="Description"
-                    underlineShow={false}
+                    underlineShow={true}
+                    onChange={(event, newValue) => this.handleTextFieldChange(newValue, 4)}
                     value={this.state.product.description}
-                    style={{width: 300}}
-                    floatingLabelStyle={{fontSize: '20px'}}
+                    style={{ width: 300 }}
+                    floatingLabelStyle={{ fontSize: '20px' }}
                     multiLine={true}
-                    rows={2}
-                    rowsMax={4}
+                    rowsMax={2}
                   />
                 </div>
               </div>
@@ -189,11 +242,17 @@ class ProductCreator extends Component {
                   width={325} 
                   openSecondary={true} 
                   open={this.state.open} >
-                    <AppBar className="black" title="Settings" onClick={() => this.handleToggle(1)}/>
+                    <AppBar 
+                      className="black" 
+                      title="Settings" 
+                      onClick={() => this.handleToggle(1)}
+                      style={{backgroundColor: 'black'}}
+                    />
                       <MenuItem>
                           <Toggle
                             label="Predict Average Values"
                             defaultToggled={true}
+
                             onToggle={() => this.handleToggle(2)}
                             elementStyle={styles.size}
                             thumbStyle={styles.thumbOff}
@@ -207,9 +266,28 @@ class ProductCreator extends Component {
                   </Drawer>
               </div>
             </div>
+          <div className="deal">
+              <Link href='/business'>
+                  <Button
+                    onClick={this.submitProduct}
+                    backgroundColor="black"
+                    labelColor="white"
+                    buttonStyle={{ textColor: 'white' }}
+                    label="Add Deal"
+                  >
+                  </Button>
+              </Link>
+          </div>
           <div className="submit">
               <Link href='/business'>
-                  <Button onClick={this.submitProduct} className="black" waves='light'>Save</Button>
+                  <Button
+                    onClick={this.submitProduct}
+                    backgroundColor="black"
+                    labelColor="white"
+                    buttonStyle={{ textColor: 'white' }}
+                    label="Save"
+                  >
+                  </Button>
               </Link>
           </div>
           <style jsx>{`
@@ -232,7 +310,7 @@ class ProductCreator extends Component {
           }
           .selectedName {
               margin-left: 58vw;
-              margin-top: 5vh;
+              margin-top: 8vh;
               max-height: 20vh;
               position: absolute;
               font-family: 'Play', sans-serif;
@@ -249,7 +327,7 @@ class ProductCreator extends Component {
           }
           .currentPageTitle {
               position: relative;
-              margin-top: vh;
+              margin-top: -1.5vh;
               margin-left: 5vw;
           }
           .headerBar {
@@ -259,11 +337,18 @@ class ProductCreator extends Component {
               min-width: 60vw;
               border-radius: 4px;
           }
-          .currentPageTitle h5 {
+          .currentPageTitle h2 {
               position: relative;
-              -webkit-text-shadow:    1px 1px 3px 3px #ccc;
+              letter-spacing: 2px;
+              font-weight: 100;
+              -webkit-text-shadow: 1px 1px 3px 3px #ccc;
               color: white;
               font-family: 'Play', sans-serif;
+          }
+          .emptyPic {
+            min-width: 140px;
+            min-height: 140px;  
+            background-color: rgba(0, 0, 0, 0.05);
           }
           .inputter {
               margin-left: 5vw;
@@ -272,10 +357,29 @@ class ProductCreator extends Component {
           }
           .submit {
               margin-left: 55vw;
+              margin-top: -5.8vh;
+              font-family: 'Play', sans-serif;
+          }
+          .deal {
+              margin-left: 45vw;
               margin-top: -9vh;
               font-family: 'Play', sans-serif;
           }
-
+          .emptyTitle {
+            min-width: 140px;
+            min-height: 30px;
+            background-color: rgba(0, 0, 0, 0.05);
+          }
+          .emptyBrand {
+            min-width: 140px;
+            min-height: 20px;
+            background-color: rgba(0, 0, 0, 0.05);     
+          }
+          .priceButtons {
+            position: relative;
+            margin-top: 2vh;
+            margin-left: 28vw;
+          }
           `}</style>
       </div>
     );

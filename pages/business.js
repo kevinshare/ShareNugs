@@ -26,14 +26,11 @@ class Business extends React.Component {
     return(
       <div className="wrapper">
         <Overlay>
-          <Head>
-              <title>Style Page</title>
-              <link href="/static/materializedStyles.css" rel="stylesheet" />
-          </Head>
           <ProductCreator />
         </Overlay>
         <style jsx>{`
           .wrapper {
+            box-sizing: inherit;
             min-height: 200vh;
             min-width: 100vw;
             background-color: rgba(245, 245, 245);

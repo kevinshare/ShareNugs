@@ -15,10 +15,6 @@ class Index extends React.Component {
     return(
       <div className="wrapper">
         <Overlay>
-          <Head>
-              <title>Style Page</title>
-              <link href="/static/materializedStyles.css" rel="stylesheet" />
-          </Head>
           <EntryButtons />
         </Overlay>
         <style jsx>{`

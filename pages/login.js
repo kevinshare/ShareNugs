@@ -4,10 +4,6 @@ import LoginOverlay from '../components/LoginOverlay';
 export default () => (
   <div className="wrapper">
     <LoginOverlay>
-      <Head>
-        <title>Style Page</title>
-        <link href="/static/materializedStyles.css" rel="stylesheet" />
-      </Head>
     </LoginOverlay>
     <style jsx>{`
       .wrapper {

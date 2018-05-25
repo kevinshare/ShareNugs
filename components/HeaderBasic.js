@@ -5,9 +5,10 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: '',
       isTop: true,
+      hover: false,
     };
+    this.toggleHover = this.toggleHover.bind(this);
   }
   componentDidMount() {
     document.addEventListener('scroll', () => {
@@ -17,33 +18,47 @@ export default class extends Component {
       }
     });
   }
+
+  toggleHover() {
+    this.setState({
+      hover: !this.state.hover,
+    });
+  }
   render() {
     let navBackground;
     let titleColor;
     let textColor;
-    if (!this.state.isTop) {
-      navBackground = {
-        backgroundColor: 'rgba(100, 100, 100, 0.8)',
-      };
+    if (this.state.hover) {
       titleColor = {
-        color: '#C0C0C0',
-      };
-      textColor = {
-        color: '#C0C0C0',
+        color: 'black',
       };
     } else {
       titleColor = {
         color: '#C0C0C0',
       };
+    }
+    if (!this.state.isTop) {
+      navBackground = {
+        backgroundColor: 'rgba(100, 100, 100, 0.8)',
+      };
+      textColor = {
+        color: '#C0C0C0',
+      };
+    } else {
       textColor = {
         color: 'black',
       };
     }
     return (
-      <div style={navBackground} className="navbar"> 
+      <div style={navBackground} className="navbar">
         <div>
           <Link href='/'>
-            <h1 style={titleColor} className="title">
+            <h1
+              style={titleColor} 
+              className="title"
+              onMouseEnter={this.toggleHover}
+              onMouseLeave={this.toggleHover}
+            >
               Share Nugs
             </h1>
           </Link>
@@ -129,7 +144,7 @@ export default class extends Component {
           color:#f2f2f2;
           background-color:white;
         }
-        @media all and (max-width:30em){
+        @media all and (max-width:30em) {
           a.button1{
             display:block;
             margin:0.4em auto;
